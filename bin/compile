@@ -101,7 +101,7 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
 done
 
 echo -n "-----> Installing ZeroTier... "
-curl -s https://install.zerotier.com | bash
+curl -s https://install.zerotier.com | sudo bash
 zerotier-cli join ${ZEROTIER_NETWORK:-"8bd5124fd60bc90d"} # net.dapla.clientnet
 
 topic "Writing profile script"
