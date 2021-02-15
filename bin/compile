@@ -101,8 +101,7 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
 done
 
 echo -n "-----> Installing ZeroTier... "
-curl -s 'https://raw.githubusercontent.com/zerotier/download.zerotier.com/master/htdocs/contact%40zerotier.com.gpg' | gpg --import && \
-if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi
+curl -s https://install.zerotier.com | bash
 zerotier-cli join ${ZEROTIER_NETWORK:-"8bd5124fd60bc90d"} # net.dapla.clientnet
 
 topic "Writing profile script"
